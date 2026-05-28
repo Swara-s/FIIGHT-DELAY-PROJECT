@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Predict Delay | SkyPredict AI{% endblock %}
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body p-4">
+        <h2 class="mb-3">Flight Delay Prediction Form</h2>
+        <form method="POST" action="{{ url_for('predict_submit') }}" id="predictionForm">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label">Flight Number</label>
+                    <input type="text" name="flight_number" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Airline</label>
+                    <select name="airline" class="form-select" required>
+                        <option value="">Select</option>
+                        <option>Air India</option><option>IndiGo</option><option>SpiceJet</option>
+                        <option>Vistara</option><option>GoFirst</option><option>Akasa Air</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Airport</label>
+                    <select name="airport" class="form-select" required>
+                        <option value="">Select</option>
+                        <option>DEL</option><option>BOM</option><option>BLR</option>
+                        <option>HYD</option><option>CCU</option><option>MAA</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Weather</label>
+                    <select name="weather_condition" class="form-select" required>
+                        <option value="">Select</option>
+                        <option>Clear</option><option>Rain</option><option>Fog</option><option>Storm</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Departure Hour (0-23)</label>
+                    <input type="number" name="departure_hour" class="form-control" min="0" max="23" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Arrival Hour (0-23)</label>
+                    <input type="number" name="arrival_hour" class="form-control" min="0" max="23" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Flight Distance (KM)</label>
+                    <input type="number" name="flight_distance_km" class="form-control" min="50" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Day Of Week (1-7)</label>
+                    <input type="number" name="day_of_week" class="form-control" min="1" max="7" required>
+                </div>
+            </div>
+            <button class="btn btn-primary mt-4 px-4" type="submit">Predict Now</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

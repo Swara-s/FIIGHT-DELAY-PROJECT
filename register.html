@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Register | SkyPredict AI{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h3 class="mb-3">Create Account</h3>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="full_name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password (min 6 chars)</label>
+                        <input type="password" name="password" minlength="6" class="form-control" required>
+                    </div>
+                    <button class="btn btn-success w-100">Register</button>
+                </form>
+                <p class="mt-3 mb-0 text-center">Already registered? <a href="{{ url_for('login') }}">Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

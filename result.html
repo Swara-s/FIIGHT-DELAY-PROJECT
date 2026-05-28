@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Prediction Result | SkyPredict AI{% endblock %}
+{% block content %}
+<div class="card result-card shadow-lg">
+    <div class="card-body p-4">
+        <h2 class="mb-3">Prediction Result</h2>
+        <p class="mb-1"><strong>Flight:</strong> {{ prediction.flight_number }} | {{ prediction.airline }} | {{ prediction.airport }}</p>
+        <hr>
+        <h4 class="{{ 'text-danger' if prediction.delay_status == 'Likely Delayed' else 'text-success' }}">
+            {{ prediction.delay_status }}
+        </h4>
+        <div class="row mt-3">
+            <div class="col-md-4"><div class="metric-box"><h6>Delay Probability</h6><p>{{ prediction.delay_probability }}%</p></div></div>
+            <div class="col-md-4"><div class="metric-box"><h6>Confidence Score</h6><p>{{ prediction.confidence_score }}%</p></div></div>
+            <div class="col-md-4"><div class="metric-box"><h6>Estimated Delay</h6><p>{{ prediction.predicted_delay_minutes }} min</p></div></div>
+        </div>
+        <a href="{{ url_for('predict_page') }}" class="btn btn-outline-primary mt-4">Try Another Prediction</a>
+    </div>
+</div>
+{% endblock %}

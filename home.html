@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Home | SkyPredict AI{% endblock %}
+{% block content %}
+<section class="hero p-4 p-md-5 rounded-4 text-white mb-4">
+    <div class="row align-items-center">
+        <div class="col-lg-8">
+            <h1 class="display-5 fw-bold">AI-Powered Flight Delay Prediction System</h1>
+            <p class="lead">Predict delays using historical flight patterns and real-time flight/weather factors.</p>
+            <a href="{{ url_for('predict_page') }}" class="btn btn-light btn-lg mt-2">Start Prediction</a>
+        </div>
+    </div>
+</section>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card info-card h-100">
+            <div class="card-body">
+                <h5>Machine Learning Driven</h5>
+                <p>Random Forest + Linear Regression with optional XGBoost for strong predictions.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card info-card h-100">
+            <div class="card-body">
+                <h5>Secure User Accounts</h5>
+                <p>Registration, login, sessions, and role-based admin retraining access.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card info-card h-100">
+            <div class="card-body">
+                <h5>Visual Analytics</h5>
+                <p>Interactive dashboard with bar, line, and pie charts for insights.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
